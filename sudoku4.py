@@ -16,7 +16,7 @@ class ClingoApp(clingo.application.Application):
         self.sudoku_instance = Sudoku.from_model(model)
         return True
 
-    def print_model(self, model: Model, printer: Callable[[], None]) -> None:
+    def print_model(self, model, printer ) -> None:
        if self.sudoku_instance:
             # Send the horizontally formatted grid block to stdout
             sys.stdout.write(str(self.sudoku_instance) + "\n")
