@@ -1,5 +1,5 @@
 from typing import Tuple
-import clingo
+import clingo, re
 
 
 class Sudoku:
@@ -14,11 +14,16 @@ class Sudoku:
     @classmethod
     def from_str(cls, s: str) -> "Sudoku":
         sudoku = {}
+
         # YOUR CODE HERE
         return cls(sudoku)
 
     @classmethod
     def from_model(cls, model: clingo.solving.Model) -> "Sudoku":
-        sudoku = {}
-        # YOUR CODE HERE
+        sudoku = {
+            (symbol.arguments[0].number, symbol.arguments[1].number): symbol.arguments[2].number
+            for symbol in model.symbols(shown=True)
+            }
+        print(sudoku)
+
         return cls(sudoku)
