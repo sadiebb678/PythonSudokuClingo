@@ -5,10 +5,22 @@ import clingo, re
 class Sudoku:
     def __init__(self, sudoku: dict[Tuple[int, int], int]):
         self.sudoku = sudoku
-
+    
     def __str__(self) -> str:
-        s = ""
-        # YOUR CODE HERE
+        s = "\n"
+        count = 1
+        for r in range(1, 10):
+            for c in range(1, 10):
+                s += str(self.sudoku[(r, c)])
+                
+                if c < 9:
+                    if c % 3 == 0:
+                        s += "  "  
+                if r % 3 == 0:
+                    s += "\n\n"  
+                else:
+                    s += "\n"    
+                    
         return s
 
     @classmethod
