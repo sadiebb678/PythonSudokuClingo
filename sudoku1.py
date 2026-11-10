@@ -11,7 +11,7 @@ class ClingoApp(clingo.application.Application):
         ctl.ground()
         ctl.solve()
 
-    def print_model(self, model: Model, printer: Callable[[], None]) -> None:
+    def print_model(self, model, printer) -> None:
         symbols = model.symbols(shown=True)
         sorted_symbols = sorted(symbols)
         print(" ".join(map(str, sorted_symbols)))
